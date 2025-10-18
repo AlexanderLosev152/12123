@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<h1 class="title"></h1>
+<form>
+	<input class="input"></input>
+	<p class="form-input"></p>
+	<button type="submit">отправить</button>
+</form>
+
+<script>
+	const title = document.querySelector('.title')
+	const input = document.querySelector('.input')
+	const formInput = document.querySelector('.form-input')
+	let factor = 1000
+	let randon = Math.floor(Math.random() * factor)
+
+	// Правильное вычисление
+	let correctNumber = randon * 4 * randon - randon * 3
+
+	title.innerHTML = `(X + ${randon * 3}) / ${randon * 4} = ${randon}`
+
+	// Проверка ответа
+	input.addEventListener('input', function () {
+		if (parseInt(input.value) === correctNumber) {
+			formInput.textContent = 'Правильно!'
+		} else {
+			formInput.textContent = 'Неправильно, ты тупица'
+		}
+	})
+	console.log(correctNumber)
+</script>
+</body>
+</html>
